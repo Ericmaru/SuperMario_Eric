@@ -7,7 +7,6 @@ public class PlayerControler : MonoBehaviour
     public float playerSpeed = 4.5f;
     public float jumpForce = 10;
     public int direction = 1;
-
     float inputHorizontal;
     private GroundSensor groundSensor;
 
@@ -16,6 +15,9 @@ SpriteRenderer _spriteRender;
     public Rigidbody2D rigidBody;
 
 private Animator _animator;
+private AudioSource _audioSource;
+
+public AudioClip jumpSFX;
 
     void Awake()
     {
@@ -23,6 +25,7 @@ private Animator _animator;
         groundSensor = GetComponentInChildren<GroundSensor>();
         _spriteRender = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -95,6 +98,7 @@ private Animator _animator;
 void Jump ()
 {
     rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);  //hace que salte
+    _audioSource.PlayOneShot(jumpSFX);
 }
 
 
