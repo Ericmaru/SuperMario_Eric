@@ -10,12 +10,19 @@ public class PlayerControler : MonoBehaviour
 
     float inputHorizontal;
     private GroundSensor groundSensor;
+
+SpriteRenderer _spriteRender;
+
     public Rigidbody2D rigidBody;
+
+private Animator _animator;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         groundSensor = GetComponentInChildren<GroundSensor>();
+        _spriteRender = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -35,8 +42,34 @@ public class PlayerControler : MonoBehaviour
 
       if(Input.GetButtonDown("Jump") && groundSensor.isGrounded == true) //boton salto + boleana detector de suelo
       {
-        rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); //hace que salte
+       Jump ();
       }
+
+    if(inputHorizontal > 0)
+    {
+        _spriteRender.flipX = false;
+        _animator.SetBool("IsRunning", true);
+    }
+
+    else if(inputHorizontal < 0)
+    {
+        _spriteRender.flipX = true;
+        _animator.SetBool("IsRunning", true);
+    }
+    
+    else if(inputHorizontal == 0)
+    {
+        _animator.SetBool("IsRunning", false);
+    }
+
+    Movement();
+   
+   _animator.SetBool("IsJumping", !groundSensor.isGrounded);
+
+   /* if(_groundSensor.isGrounded)
+    {
+        _animator.SetBool("IsJumping", true);
+    }*/
 
     }
     void FixedUpdate() //formas de avanzar de derecha a izquierda
@@ -45,4 +78,25 @@ public class PlayerControler : MonoBehaviour
         //rigidBody.AddForce(new Vector2(inputHorizontal, 0));
         //rigidBody.MovePosition(new Vector2(100, 0));
     }
+
+    void Movement ()
+{
+     if(inputHorizontal > 0)
+    {
+        _spriteRender.flipX = false;
+    }
+
+    else if(inputHorizontal < 0)
+    {
+        _spriteRender.flipX = true;
+    }
+}
+
+void Jump ()
+{
+    rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);  //hace que salte
+}
+
+
+
 }
