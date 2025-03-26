@@ -22,7 +22,7 @@ void Awake()
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = 0;
     }
 
     // Update is called once per frame
@@ -45,12 +45,27 @@ public void Death()
 }
 void OnCollisionEnter2D(Collision2D collision)
 {
-    direction *= -1;
+
+    if(collision.gameObject.CompareTag("Tuberia") || collision.gameObject.layer == 6);
+    {
+        direction *= -1;
+    }
 
     if(collision.gameObject.CompareTag("Player"))
     {
-        Destroy(collision.gameObject);
+        //Destroy(collision.gameObject);
+        PlayerControler playerScript = collision.gameObject.GetComponent<PlayerControler>();
+        playerScript.Death();
     }
 }
 
+    private void OnBecameVisible()
+    {
+        speed = 5;
+    }
+
+    private void OnBecameInvisible()
+    {
+        speed = 0;
+    }
 }

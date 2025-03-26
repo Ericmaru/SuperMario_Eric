@@ -26,6 +26,11 @@ public class cameramovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+      if(playerTransform == null)
+      {
+        return;
+      }
+    { 
      Vector3 desirePosition = playerTransform.position + offset;  //mover la camara
      float clampX = Mathf.Clamp(desirePosition.x, minPosition.x, maxPosition.x);
      float clampY = Mathf.Clamp(desirePosition.y, minPosition.y, maxPosition.y);
@@ -34,6 +39,8 @@ public class cameramovement : MonoBehaviour
      
      Vector3 lerpePosition = Vector3.Lerp(transform.position, clampedPosition, interpolationRatio);
      
-     transform.position = lerpePosition;
+      transform.position = lerpePosition;
+    }
+
     }
 }
