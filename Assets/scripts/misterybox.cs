@@ -5,6 +5,8 @@ using UnityEngine;
 public class misterybox : MonoBehaviour
 {
 
+ public Transform MushroomSpawn;
+public GameObject MushroomPrefab;
     Animator _animator;
     AudioSource _audioSource;
    public  AudioClip _misteryboxSFX;
@@ -24,8 +26,8 @@ bool _isOpen = false;
         _animator.SetTrigger("OpenBox");
         _audioSource.volume = 1f;
          _audioSource.clip = _misteryboxSFX;
-    
-        _isOpen = true;
+            MushroomOut();
+            _isOpen = true;
         }
         else
         {
@@ -42,4 +44,9 @@ bool _isOpen = false;
             ActivateBox();
         }
     }
+
+    void MushroomOut()
+{
+    Instantiate(MushroomPrefab, MushroomSpawn.position, MushroomSpawn.rotation);
+}
 }

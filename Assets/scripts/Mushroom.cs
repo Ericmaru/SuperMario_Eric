@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy : MonoBehaviour
+public class Mushroom : MonoBehaviour
 {
     public int direction = 1;
-    public float speed = 5;
-    private Animator _animator;
-    private AudioSource _audioSource;
+    public float speed = 2;
     private Rigidbody2D _rigidBody;
-    public AudioClip _audioClip;
-    BoxCollider2D _boxColider;
-
-void Awake()
-{
-    _animator = GetComponent<Animator>();
-    _audioSource = GetComponent<AudioSource>();
-    _rigidBody = GetComponent<Rigidbody2D>();
-    _boxColider = GetComponent<BoxCollider2D>();
-}
+    private BoxCollider2D _boxCollider;
+    private AudioSource _audioSource;
+    public AudioClip GlowUpSFX;
+    private SpriteRenderer _renderer;
     // Start is called before the first frame update
+    
+    void Awake()
+    {
+        _rigidBody = GetComponent<Rigidbody2D>();
+        _boxCollider = GetComponent<BoxCollider2D>();
+        _renderer = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
+    }
     void Start()
     {
-        speed = 0;
+   
     }
 
     // Update is called once per frame
@@ -30,20 +30,12 @@ void Awake()
     {
         
     }
-
-void FixedUpdate()
+    void FixedUpdate()
 {
     _rigidBody.velocity = new Vector2(direction * speed, _rigidBody.velocity.y );
 }
 
-public void Death()
-{
-   _rigidBody.gravityScale = 0;
-   _boxColider.enabled = false;
-    _animator.SetTrigger("isdead");
-    Destroy(gameObject, 0.3f);
-}
-void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
 {
 
     if(collision.gameObject.CompareTag("Tuberia") || collision.gameObject.layer == 6)
@@ -55,7 +47,8 @@ void OnCollisionEnter2D(Collision2D collision)
     {
         //Destroy(collision.gameObject);
         PlayerControler playerScript = collision.gameObject.GetComponent<PlayerControler>();
-        playerScript.Death();
+        playerScript.CanShoot = true;
+        Death();
     }
 }
 
@@ -68,4 +61,14 @@ void OnCollisionEnter2D(Collision2D collision)
     {
         speed = 0;
     }
+    public void Death()
+{
+   _rigidBody.gravityScale = 0;
+   _boxCollider.enabled = false;
+    _renderer.enabled = false;
+     Destroy(gameObject, 0.9f);
+    _audioSource.PlayOneShot(GlowUpSFX);
+
+}
+
 }

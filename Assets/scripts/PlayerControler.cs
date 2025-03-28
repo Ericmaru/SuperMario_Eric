@@ -9,6 +9,11 @@ public class PlayerControler : MonoBehaviour
     public int direction = 1;
     float inputHorizontal;
     private GroundSensor groundSensor;
+    public Transform bulletSpawn;
+    public GameObject bulletPrefab;
+    public bool CanShoot = false;
+    public float PowerUpDuration = 10f;
+    public float PowerUpTimer;
 
 SpriteRenderer _spriteRender;
 
@@ -22,6 +27,7 @@ private SoundManager _soundManager;
 
 public AudioClip jumpSFX;
 public AudioClip deathSFX;
+public AudioClip shootSFX;
 
     void Awake()
     {
@@ -60,23 +66,6 @@ public AudioClip deathSFX;
        Jump ();
       }
 
-    if(inputHorizontal > 0)
-    {
-        _spriteRender.flipX = false;
-        _animator.SetBool("IsRunning", true);
-    }
-
-    else if(inputHorizontal < 0)
-    {
-        _spriteRender.flipX = true;
-        _animator.SetBool("IsRunning", true);
-    }
-    
-    else if(inputHorizontal == 0)
-    {
-        _animator.SetBool("IsRunning", false);
-    }
-
     Movement();
    
    _animator.SetBool("IsJumping", !groundSensor.isGrounded);
@@ -86,6 +75,14 @@ public AudioClip deathSFX;
         _animator.SetBool("IsJumping", true);
     }*/
 
+    if(Input.GetButtonDown("Fire1") && CanShoot) 
+    {
+        Shoot();
+    }
+    if(CanShoot)
+    {
+        PowerUp();
+    }
     }
     void FixedUpdate() //formas de avanzar de derecha a izquierda
     {
@@ -96,14 +93,19 @@ public AudioClip deathSFX;
 
     void Movement ()
 {
-     if(inputHorizontal > 0)
+    if(inputHorizontal > 0)
     {
-        _spriteRender.flipX = false;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        _animator.SetBool("IsRunning", true);
     }
-
     else if(inputHorizontal < 0)
     {
-        _spriteRender.flipX = true;
+        transform.rotation = Quaternion.Euler(0, 180, 0);
+        _animator.SetBool("IsRunning", true);
+    }
+    else if(inputHorizontal == 0)
+    {
+        _animator.SetBool("IsRunning", false);
     }
 }
 
@@ -124,6 +126,24 @@ public void Death()
     _gameManager.isPlaying = false;
     StartCoroutine(_soundManager.DeathBGM());
     rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+}
+
+
+void Shoot()
+{
+    Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+    _audioSource.PlayOneShot(shootSFX);
+}
+
+
+void PowerUp()
+{
+    PowerUpTimer += Time.deltaTime;
+    if(PowerUpTimer >= PowerUpDuration)
+    {
+        CanShoot = false;
+        PowerUpTimer = 0;
+    }
 }
 
 
