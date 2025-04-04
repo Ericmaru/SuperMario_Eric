@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6647362918706127177}
   - component: {fileID: 5291099872091630769}
   - component: {fileID: 492335409759901320}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mario_0
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 2105245648610750843}
   - component: {fileID: 4339449499184223465}
   - component: {fileID: 6350532410688063298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ground sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

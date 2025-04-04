@@ -8,6 +8,7 @@ public class coin : MonoBehaviour
     private AudioSource _audioSource;
     public AudioClip CoinSFX;
     private SpriteRenderer _renderer;
+    GameManager _gameManager;
     // Start is called before the first frame update
     
     void Awake()
@@ -15,6 +16,7 @@ public class coin : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider2D>();
         _renderer = GetComponent<SpriteRenderer>();
         _audioSource = GetComponent<AudioSource>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Start()
     {
@@ -43,6 +45,8 @@ public class coin : MonoBehaviour
 }
     public void Death()
 {
+   _gameManager.AddCoins();
+
    _boxCollider.enabled = false;
     _renderer.enabled = false;
      Destroy(gameObject, 0.5f);

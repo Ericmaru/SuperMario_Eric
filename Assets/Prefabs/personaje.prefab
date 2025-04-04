@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1931255203200888884}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5411, y: -1.951, z: 0}
+  m_LocalPosition: {x: -1.1695968, y: -1.948, z: 0}
   m_LocalScale: {x: 2.1377828, y: 2.1377828, z: 2.1377828}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -154,7 +154,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.4, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &574371942434208375
 Rigidbody2D:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 4.5
-  jumpForce: 10
+  jumpForce: 12
   direction: 1
   bulletSpawn: {fileID: 0}
   bulletPrefab: {fileID: 0}
@@ -265,7 +265,7 @@ Transform:
   m_GameObject: {fileID: 6097227978094829846}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.6665785, z: 0.010522838}
+  m_LocalPosition: {x: 0.017, y: -0.677, z: 0.010522838}
   m_LocalScale: {x: 0.46777436, y: 0.46777436, z: 0.46777436}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -314,7 +314,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.19999999}
+  m_Size: {x: 0.75, y: 0.1}
   m_EdgeRadius: 0
 --- !u!114 &4257505957741295127
 MonoBehaviour:

@@ -75,4 +75,10 @@ public class SoundManager : MonoBehaviour
         _audioSource.PlayOneShot(gameOver);
     }
     
+    public void StopMusic()
+    {
+        _audioSource.Stop();
+    }
+
+
 }

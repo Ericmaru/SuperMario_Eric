@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public bool isPlaying = true;
     public bool _isPaused = false;
     private SoundManager _soundManager;
     public GameObject pauseCanvas;
+    private int coins = 0;
+    public Text coinsText;
 
     void Awake()
     {
@@ -18,7 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       coinsText.text = "coins: " + coins.ToString();
     }
 
     void Update()
@@ -52,4 +55,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void AddCoins()
+    {
+        coins++;
+        coinsText.text = "coins: " + coins.ToString();
+    }
+
 }

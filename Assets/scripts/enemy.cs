@@ -46,10 +46,13 @@ public void Death()
 void OnCollisionEnter2D(Collision2D collision)
 {
 
-    if(collision.gameObject.CompareTag("Tuberia") || collision.gameObject.layer == 6)
+    if(collision.gameObject.CompareTag("Tuberia") || collision.gameObject.layer == 6 ||  collision.gameObject.layer == 8)
     {
         direction *= -1;
     }
+
+   
+
 
     if(collision.gameObject.CompareTag("Player"))
     {
