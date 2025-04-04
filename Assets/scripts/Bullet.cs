@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     private Rigidbody2D _rigidBody;
     public float bulletforce = 10;
+    public float bulletDamage = 2;
     // Start is called before the first frame update
    
    void Awake()
@@ -23,7 +24,7 @@ public class Bullet : MonoBehaviour
         if(collider.gameObject.layer == 6)
         {
             enemy enemyScript = collider.gameObject.GetComponent<enemy>();
-            enemyScript.Death();
+            enemyScript.TakeDamage(bulletDamage);
             BulletDeath();
         }
 

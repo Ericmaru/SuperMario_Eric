@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Character : MonoBehaviour
     public bool CanShoot = false;
     public float PowerUpDuration = 10f;
     public float PowerUpTimer;
+    public Image powerUpImage;
 
 SpriteRenderer _spriteRender;
 
@@ -139,6 +141,9 @@ void Shoot()
 void PowerUp()
 {
     PowerUpTimer += Time.deltaTime;
+
+    powerUpImage.fillAmount = Mathf.InverseLerp(PowerUpDuration, 0, PowerUpTimer);
+
     if(PowerUpTimer >= PowerUpDuration)
     {
         CanShoot = false;

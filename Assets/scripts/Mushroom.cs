@@ -48,6 +48,7 @@ public class Mushroom : MonoBehaviour
         //Destroy(collision.gameObject);
         PlayerControler playerScript = collision.gameObject.GetComponent<PlayerControler>();
         playerScript.CanShoot = true;
+        playerScript.PowerUpTimer = 0;
         Death();
     }
 }
