@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1127933709504548447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 280937934998410964}
+  m_Layer: 9
+  m_Name: bulletspawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &280937934998410964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127933709504548447}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.363, y: 0.285, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 782382104071507214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8652708000611582346
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,6 +67,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2105245648610750843}
+  - {fileID: 280937934998410964}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &272171812070837553
@@ -178,14 +210,15 @@ MonoBehaviour:
   jumpForce: 12
   direction: 1
   bulletSpawn: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 7109819538010543063, guid: ae0a5a6480b44aa4084d272d38142d2a, type: 3}
   CanShoot: 0
   PowerUpDuration: 10
   PowerUpTimer: 0
+  powerUpImage: {fileID: 0}
   rigidBody: {fileID: 7382991670729273459}
   jumpSFX: {fileID: 8300000, guid: 99a309eb70ba97244a169ea799533f33, type: 3}
-  deathSFX: {fileID: 0}
-  shootSFX: {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: 4128e89570814644eae59265d5bda868, type: 3}
+  shootSFX: {fileID: 8300000, guid: 5ac454ae31ca1694193bba9d8bd894d7, type: 3}
 --- !u!95 &5291099872091630769
 Animator:
   serializedVersion: 5
@@ -394,3 +427,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
+  jumpDamage: 5

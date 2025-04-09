@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject pauseCanvas;
     private int coins = 0;
     public Text coinsText;
+    private int enemies = 0;
+    public Text enemiesText;
 
     void Awake()
     {
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
        coinsText.text = "coins: " + coins.ToString();
+       enemiesText.text = "enemies: " + enemies.ToString();
     }
 
     void Update()
@@ -61,5 +64,13 @@ public class GameManager : MonoBehaviour
         coins++;
         coinsText.text = "coins: " + coins.ToString();
     }
+
+public void AddEnemies()
+    {
+        enemies++;
+        enemiesText.text = "enemies: " + enemies.ToString();
+    }
+    
+
 
 }

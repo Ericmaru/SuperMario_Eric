@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -73,6 +74,8 @@ public class SoundManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         _audioSource.PlayOneShot(gameOver);
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(2);
     }
     
     public void StopMusic()

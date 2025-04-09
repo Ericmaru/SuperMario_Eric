@@ -15,6 +15,7 @@ public class enemy : MonoBehaviour
     public float maxHealth;
     private float currentHealth;
     private Slider _healthBar;
+    public GameManager _gameManager;
 
 void Awake()
 {
@@ -23,6 +24,7 @@ void Awake()
     _rigidBody = GetComponent<Rigidbody2D>();
     _boxColider = GetComponent<BoxCollider2D>();
     _healthBar = GetComponentInChildren<Slider>();
+    _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 }
     // Start is called before the first frame update
     void Start()
@@ -51,6 +53,7 @@ public void Death()
    _boxColider.enabled = false;
     _animator.SetTrigger("isdead");
     Destroy(gameObject, 2);
+    _gameManager.AddEnemies();
 }
 
 public void TakeDamage(float damage)

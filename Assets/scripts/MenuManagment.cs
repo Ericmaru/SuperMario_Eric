@@ -10,9 +10,21 @@ public class MenuManagment : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+     public void Restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+    
+     public void PlayerDead()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+
     // Update is called once per frame
     public void Exit()
     {
         Application.Quit();
     }
+
 }
