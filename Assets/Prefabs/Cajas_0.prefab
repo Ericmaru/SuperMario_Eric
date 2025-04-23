@@ -320,7 +320,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MushroomSpawn: {fileID: 5182513864041523514}
-  MushroomPrefab: {fileID: 1536020077656268098, guid: 9fa73d4afb819ba42835f71b0b0208e0, type: 3}
+  MushroomPrefab:
+  - {fileID: 1536020077656268098, guid: 9fa73d4afb819ba42835f71b0b0208e0, type: 3}
+  - {fileID: 2236623186972362090, guid: bf0213f7b1c458d4590033c2d7373424, type: 3}
+  - {fileID: 1319262873514521419, guid: 2203a2365bb13f141ad30e5d1389f8ea, type: 3}
+  MushroomIndex: 0
   _misteryboxSFX: {fileID: 8300000, guid: 2af16f86283693a40a42de992d79c50e, type: 3}
   _misteryBoxSFX2: {fileID: 8300000, guid: 04e7ae92c221fac4092260bb29c4c3d6, type: 3}
 --- !u!95 &1104334714067622308

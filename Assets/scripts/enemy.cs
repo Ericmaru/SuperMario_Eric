@@ -29,7 +29,7 @@ void Awake()
     // Start is called before the first frame update
     void Start()
     {
-        speed = 0;
+    
         currentHealth = maxHealth;
         _healthBar.maxValue = maxHealth;
         _healthBar.value = maxHealth;
@@ -91,11 +91,13 @@ void OnCollisionEnter2D(Collision2D collision)
 
     private void OnBecameVisible()
     {
-        speed = 5;
+        direction = 1;
+        _gameManager.enemiesInScreen.Add(gameObject);
     }
 
     private void OnBecameInvisible()
     {
-        speed = 0;
+        direction = 0;
+        _gameManager.enemiesInScreen.Remove(gameObject);
     }
 }

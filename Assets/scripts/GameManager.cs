@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Text coinsText;
     private int enemies = 0;
     public Text enemiesText;
+    public List<GameObject> enemiesInScreen;
 
     void Awake()
     {
@@ -30,9 +31,19 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if(Input.GetButtonDown("pause"))
-        Pause();
+        {
+            Pause();
+        }
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            foreach(GameObject enemy in enemiesInScreen)
+            {
+                Enemy enemyscript = enemy.GetComponent<Enemy>();
+                enemyScript.Death();
+            }
+        }
     }
-    // Update is called once per frame
+    
     public void Pause()
     {  
         if(Input.GetButtonDown("pause"))
