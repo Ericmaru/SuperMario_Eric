@@ -7271,6 +7271,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &283965724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283965726}
+  - component: {fileID: 283965725}
+  m_Layer: 0
+  m_Name: primerthing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &283965725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283965724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd1aabde967ee24faa76205e810a593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numeros2: 
+--- !u!4 &283965726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283965724}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.698158, y: -1.4185582, z: 0.005048545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &285664590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8059778410681238624, guid: 2203a2365bb13f141ad30e5d1389f8ea, type: 3}
@@ -28117,6 +28162,7 @@ MonoBehaviour:
   pauseCanvas: {fileID: 0}
   coinsText: {fileID: 1544120779}
   enemiesText: {fileID: 344418881}
+  enemiesInScreen: []
 --- !u!4 &1002553586
 Transform:
   m_ObjectHideFlags: 0
@@ -62204,3 +62250,4 @@ SceneRoots:
   - {fileID: 1304876507}
   - {fileID: 1277736476}
   - {fileID: 790860953}
+  - {fileID: 283965726}
